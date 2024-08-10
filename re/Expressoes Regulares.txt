@@ -1,0 +1,85 @@
+REGULAR EXPRESSIONS (regeX)
+
+*AULA 1*
+IMPORTANDO LIB
+import re
+
+COMANDOS BASICOS
+findall - Encontre todas ocorrencias
+search - Encontre a ocorrencia
+sub - Substitui a ocorrencia
+
+
+*AULA 2*
+METACARACTERES 
+. ^ $ * + ? {} [] \ | ( )
+
+. Coringa -> Utilizado como um coringa.
+Ex: Ab... -> Retorna todas palavras que começam com A maiusculo, seguido de b, que tenham no total cinco letras.
+[] Grupo de conjuntos -> Utilizado como um range.
+Ex: [aA]b... -> Retorna todas palavras que começam com a, seguido de b, que tenham no total cinco letras.
+
+*AULA 3*
+QUANTIFICADORES
+*  0 ou n -> temos certeza que vai aparecer nenhuma, ou ilimitada vezes
++ 1 ou n -> temos certeza que vai aparecer uma, ou ilimitada vezes 
+? 0 ou 1 -> temos certeza que vai aparecer nenhuma, ou uma vez
+{ } min, max -> temos certeza que vai aparecer x minimo de vez, e x maximo de vezes
+
+*AULA 4*
+GREEDY E NON-GREEDY
+<p>Frase 1</p> <p>Frase 2</p> <p>Frase 3</p> <div></div>
+
+GREEDY -> Retorna o consumo inteiro do texto, de forma integral.
+<[dpiv]{1,3}>.*<\/[dpiv]{1,3}>
+return -> [<p>Frase 1</p> <p>Frase 2</p> <p>Frase 3</p> <div></div>]
+
+NON-GREEDY -> Retorna o consumo inteiro do texto, em partes.
+<[dpiv]{1,3}>.*?<\/[dpiv]{1,3}>
+return -> ['<p>Frase 1</p>', '<p>Frase 2</p>', '<p>Frase 3</p>', '<div></div>']
+
+
+*AULA 5*
+GRUPOS E RETROVISOSRES
+() Grupos -> Utilizados para encontrar exatamente o grupo de caracteres passado
+
+
+*AULA 6*
+^ Inicio -> Começa com 
+$ Fim -> Termina com 
+[^ ] Negaçao -> Quando ^ esta dentro de um conjunto, ele serve como negaçao
+
+
+*AULA 7*
+SHORTHANDS E FLAGS
+SHORTHANDS
+\w -> Representa o range de caracteres alfanumerico. Seria como [a-zA-Z]
+\W -> Tem a mesma representaçao do \w, porem em negacao.
+\d -> Representa o range de caracteres numericos. Seria como  [0-9]
+\D -> Tem a mesma representaçao do \d, porem em negacao.
+\s -> Representa todos espacos em branco, espacos, paragrafos, etc.
+\S -> Tem a mesma representaçao do \s, porem em negacao.
+\b -> Encontra a "borda", ou seja, obrigatoriedade dos caracteres em branco antes do inicio ou depois do fim.
+
+FLAGS
+re.A ASCII -> Caracteres ASCII
+re.I Ignorecase -> Torna o key sensitive falso
+re.M Multiline ->  Torna cada quebra de texto, um novo trecho a parte
+re.S Dotall -> Reconhece quebra de linhas com uso do "."
+
+
+*AULA 8*
+LOOKHEAD E LOOKBEHIND
+
+LOOKHEAD
+?= Positive Lookhead -> Verifica se a expressao existe pra frente.
+?="Active" -> Verifica se a expressao active existe nos caracteres mencionandos
+
+?!= Negative Lookhead -> Verifica se a expressao nao existe
+?!="Active" -> Verifica se a expressao active nao existe nos carecteres mencionados
+
+LOOKBEHIND
+?<= Positive Lookbehind -> Verifica se a expressao existe pra tras
+?<=! Negative Lookbehind -> Verifica se a expressao nao existe pra tras
+
+*AULA 9*
