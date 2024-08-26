@@ -1,5 +1,4 @@
-THIS IS MACAW 
-
+# THIS IS MACAW 
        _------.
       /  ,     \_
     /   /  /{}\ |o\_
@@ -9,5 +8,5 @@ THIS IS MACAW
  /              /__/)/
 |              |
 
-THIS IS MACAW
+# THIS IS MACAW
 
