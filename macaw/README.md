@@ -1,6 +1,6 @@
 # THIS IS MACAW 
 
-<p align="center"> O projeto macaw é voltado para redes de computadores, e seus protocolos. </p>
+<p align="center"> O projeto macaw é voltado para análise redes de computadores, e seus protocolos. </p>
 
 O projeto incial consiste em três arquivos que podem ser executados de forma independente.
 port scanner - bate de porta em porta;
