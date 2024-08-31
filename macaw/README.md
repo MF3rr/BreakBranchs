@@ -11,7 +11,8 @@ sniffer - fareja protocolos;
 # ATUALIZACAO DOS PROJETOS EXISTENTES
 <h2> Request </h2>
 Proponho que em um futuro irei implementar metodos como POST, PUT, e demais.
-O metodo POST tem consumido muitas tentativas e erros, mas creio que logo chegarei em um resultado.
+O metodo POST tem consumido muitas tentativas, nenhuma bem sucedida. 
+Entretanto creio que logo chegarei em um resultado sustentavel. 
 
 <h2> Sniffer </h2>
 O sniffer tem uma pequena deficiencia, a falta de tradução dos bytes.
