@@ -11,14 +11,14 @@ class IP(Structure):
       ("ihl", c_ubyte, 4),
       ("version", c_ubyte, 4),
       ("tos", c_ubyte),
-      ("len", c_ushort),
+      ("len", c_ushort), # tamanho
       ("id", c_ushort),
       ("offset", c_ushort),
-      ("ttl", c_ubyte),
-      ("protocol_num", c_ubyte),
-      ("checksum", c_ushort),
-      ("src", c_uint32),
-      ("dst", c_uint32)
+      ("ttl", c_ubyte), # time to live
+      ("protocol_num", c_ubyte), 
+      ("checksum", c_ushort), # verificacao de integridade
+      ("src", c_uint32), # porta origem
+      ("dst", c_uint32) # porta destino
     ]
 
     def __new__(cls, socket_buffer=None):
@@ -48,14 +48,14 @@ class ICMP(Structure):
       pass
 # Fim do trecho extraido de Black Hat Python
 
-def sniffer(hosts=[socket.gethostbyname(socket.gethostname())], codec='utf-8'):
+def sniffer(hosts=[socket.gethostbyname(socket.gethostname())], port=0, codec='utf-8'):
   # >> socket.gaierror: [Errno 11001] getaddrinfo failed
   # Interface de rede pública
   for HOST in hosts:
     print(HOST)
     # Cria um socket com interface pública
     sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
-    sock.bind((HOST, 0))
+    sock.bind((HOST, port))
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)  # Inclui os cabeçalhos
     sock.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)  # ativa a promiscuidade
 
@@ -82,6 +82,4 @@ def sniffer(hosts=[socket.gethostbyname(socket.gethostname())], codec='utf-8'):
     sock.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF) # desativa a promiscuidade
 
 # USE EXAMPLE
-'''
-sniffer(['192.168.0.12'], codec='ascii')
-'''
+sniffer()
